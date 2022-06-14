@@ -1,0 +1,520 @@
+@import url('https://fonts.googleapis.com/css2?family=Gluten:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Architects+Daughter&family=Gluten:wght@300&display=swap');
+// when the page loads prevent the transition
+body.preload * {
+    transition: background-color 0s, opacity 0s, color 0s, width 0s, height 0s, padding 0s, margin 0s !important;
+}
+
+// ------------------------ glober elements setting ------------------------ //
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    text-decoration: none;
+    font-family: 'Gluten', cursive;
+}
+
+:root {
+    --main-color: rgb(229, 27, 35);
+    --dark-color: rgb(245, 128, 128);
+    --hover-color: rgb(255, 225, 225);
+    --nav-height: 4rem;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+main {
+    overflow: hidden;
+}
+
+.home-page>section:nth-child(2n),
+.menu-page>section:nth-child(2n+3) {
+    background-color: rgb(245, 245, 245);
+}
+
+.home-page,
+.menu-page,
+.event-page {
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    section {
+        overflow: hidden;
+    }
+    // each sections title
+    header {
+        flex: 1 1 100%;
+        text-align: center;
+        h2 {
+            color: var(--main-color);
+        }
+        p {
+            color: var(--main-color);
+        }
+    }
+}
+
+// the purpose of displaying movement effect animation between pages move
+.overall-wrapper {
+    display: flex;
+    flex-direction: row;
+    width: 300%;
+}
+
+// orders to use in JavaScript
+.home-page {
+    order: 1;
+}
+
+.menu-page {
+    order: 3;
+}
+
+.event-page {
+    order: 3;
+}
+
+.wrapper {
+    display: flex;
+    max-width: 80rem;
+    padding: 6em 2rem;
+    flex-wrap: wrap;
+    margin: 0 auto;
+    gap: 1rem;
+}
+
+h2 {
+    font-size: 1.4em;
+}
+
+p {
+    font-size: 1.2em;
+}
+
+.btn {
+    flex: 1 1 100%;
+    text-align: center;
+    padding: 1rem;
+    cursor: pointer;
+    background-color: var(--dark-color);
+    transition: background-color .3s;
+    &:hover {
+        background-color: var(--hover-color);
+    }
+}
+
+.text-box {
+    position: relative;
+    display: flex;
+    margin: auto;
+    overflow: hidden;
+    line-height: 1.5em;
+    color: rgb(49, 49, 49);
+    span {
+        color: var(--main-color);
+    }
+}
+
+.image-box {
+    border-radius: 50%;
+    margin: auto;
+    overflow: hidden;
+    img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center;
+    }
+}
+
+// ------------------------ nav styling starts here ------------------------- //
+.nav {
+    position: relative;
+    z-index: 999;
+    transition: height 1s;
+    height: var(--nav-height);
+    &__wrapper {
+        display: flex;
+        height: 100%;
+        background-color: var(--main-color);
+    }
+}
+
+// covering the whole page until link is selected
+.nav-cover {
+    height: 100vh;
+    transition: height 0s;
+    min-height: 40rem;
+}
+
+.logo {
+    position: absolute;
+    top: 0;
+    left: 0;
+    transition-property: left, transform, top, height;
+    transition-delay: .4s, .4s, 0s, 0s;
+    transition-duration: .8s;
+    height: var(--nav-height);
+    img {
+        height: 100%;
+    }
+}
+
+// when this element is removed, logo will get its own initial size and position
+.logo-resize {
+    height: 5em;
+    top: 30%;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+// links with desktop media query
+.links {
+    display: flex;
+    margin: 0 0 0 auto;
+    li {
+        display: flex;
+        width: 8em;
+        height: var(--nav-height);
+        color: white;
+        align-items: center;
+        justify-content: center;
+        font-weight: bolder;
+        cursor: pointer;
+        transition: background-color .4s;
+        &:hover {
+            background-color: rgba(255, 197, 197, 0.822);
+        }
+    }
+}
+
+// when this element is removed, links will get its own initial position
+.links.nav-cover-on {
+    display: flex;
+    margin: auto;
+    transform: translateY(100%);
+}
+
+.nav-side {
+    display: none;
+    margin: auto 1rem auto auto;
+    height: 2.5rem;
+    width: 2.5rem;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: background-color .3s;
+    &:hover {
+        background-color: rgba(51, 51, 51, 0.219);
+    }
+}
+
+// hamberger icon - side menu button
+.nav-side-icon {
+    position: relative;
+    margin: auto;
+    width: 1.5rem;
+    height: 1rem;
+    // displaying navbar icon lines
+    span {
+        position: absolute;
+        padding: .1rem;
+        background-color: white;
+        border-radius: 2rem;
+        transition-property: top, transform;
+        transition-duration: .5s;
+        left: 0;
+        right: 0;
+        // each spans have a line with different position
+        &:nth-child(1) {
+            top: 0;
+        }
+        &:nth-child(2) {
+            transform: translateY(-50%);
+            top: 50%;
+        }
+        &:nth-child(3) {
+            transform: translateY(-100%);
+            top: 100%;
+        }
+        // when nav-side icon is selected, new classes will apply to show animation effect
+        &:nth-child(1).side-icon-transition0 {
+            top: 50%;
+            transform: translateY(-50%) rotateZ(45deg);
+        }
+        &:nth-child(2).side-icon-transition1 {
+            transform: translateY(-50%) rotateZ(135deg);
+        }
+        &:nth-child(3).side-icon-transition2 {
+            top: 50%;
+            transform: translateY(-50%) rotateZ(-45deg);
+        }
+    }
+}
+
+.nav-side-actived {
+    background-color: rgba(51, 51, 51, 0.219);
+}
+
+// prevent displaying over width for nav-side-links
+.nav-side-container {
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 4rem;
+}
+
+// when nav-side icon is selected, side links will display
+.nav-side-links {
+    position: absolute;
+    top: 0;
+    left: 100%;
+    background-color: whitesmoke;
+    padding: 1rem;
+    width: 70%;
+    transition: transform .5s;
+    ul {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+    }
+    li {
+        font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+        display: flex;
+        color: black;
+        font-size: 1rem;
+        padding: .5rem 1rem;
+        border: .1rem solid rgb(211, 211, 211);
+        justify-content: center;
+        cursor: pointer;
+        background-color: rgb(240, 240, 240);
+        transition: background-color .4s;
+        &:hover {
+            background-color: var(--dark-color);
+        }
+    }
+}
+
+// when nav-side icon is selected this will add into nav-side-links class
+.nav-side-actiavted {
+    transform: translateX(-100%);
+}
+
+// prevents the nav-side from being visible when in mobile size
+// when btn-links clicked, removes this class
+.nav-side.nav-cover-on {
+    display: none;
+}
+
+// prevent scrolling when nav-side is activated
+.screen-disable {
+    display: none;
+    position: fixed;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(26, 26, 26, 0.397);
+    z-index: 998;
+}
+
+// ---------------------- home-page styling starts here ----------------------- //
+// ---------------------- home-intro styling starts here ---------------------- //
+.home-intro {
+    .image-box {
+        width: 20em;
+        height: 20em;
+    }
+    &__btn {
+        display: flex;
+        justify-content: right;
+        font-variant-caps: all-small-caps;
+        flex: 1 1 100%;
+        gap: .5rem;
+        p {
+            transition: background-color .5s;
+            border-radius: .5rem;
+            padding: .5rem;
+            cursor: pointer;
+        }
+        p:hover {
+            background-color: var(--hover-color);
+        }
+    }
+    .text-box {
+        border-radius: 1rem;
+        padding: 2rem;
+        color: white;
+        p {
+            z-index: 2;
+        }
+    }
+    // background is applied based on the size of the text box
+    &__text-bg {
+        // configured span to show animation effect
+        span {
+            position: absolute;
+            top: -100%;
+            width: 20%;
+            height: 100%;
+            background-color: rgb(243, 212, 212);
+            z-index: 1;
+        }
+        span:first-child {
+            left: 0;
+        }
+        span:nth-child(2) {
+            left: 20%;
+        }
+        span:nth-child(3) {
+            left: 40%;
+        }
+        span:nth-child(4) {
+            left: 60%;
+        }
+        span:last-child {
+            left: 80%;
+        }
+        // class add into each span to show the animation effect
+        .spanfade0,
+        .spanfade1,
+        .spanfade2,
+        .spanfade3,
+        .spanfade4 {
+            background-color: var(--dark-color);
+            top: 0;
+            transition-property: top, background-color;
+            transition-duration: .6s;
+        }
+        .spanfade0 {
+            transition-delay: 0s;
+        }
+        .spanfade1 {
+            transition-delay: .1s;
+        }
+        .spanfade2 {
+            transition-delay: .2s;
+        }
+        .spanfade3 {
+            transition-delay: .3s;
+        }
+        .spanfade4 {
+            transition-delay: .4s;
+        }
+    }
+}
+
+// ------------ home-menu, home-about-us and home-hire styling starts here --------------- //
+.home-menu,
+.home-about-us,
+.home-hire {
+    .wrapper {
+        gap: 2rem;
+    }
+    .text-box {
+        flex: 1 1 50%;
+        flex-direction: column;
+        gap: 2rem;
+        transition-property: opacity, transform;
+        transition-duration: 1s;
+        pointer-events: none;
+    }
+    .text-box {
+        opacity: .5;
+    }
+    .image-box {
+        opacity: .5;
+        width: 20em;
+        height: 20em;
+        transition-property: opacity, transform;
+        transition-duration: .8s;
+    }
+}
+
+// image and text boxs start at the position of the specified value
+.home-menu,
+.home-hire {
+    .image-box {
+        transform: translateX(-50%);
+    }
+    .text-box {
+        transform: translateX(20%);
+    }
+}
+
+.home-about-us {
+    .wrapper {
+        flex-direction: row-reverse;
+    }
+    .image-box {
+        transform: translateX(50%);
+    }
+    .text-box {
+        transform: translateX(-20%);
+    }
+}
+
+// when the current scroll value is reached the calculated value, add this class
+.home-menu,
+.home-about-us,
+.home-hire {
+    .transform-box {
+        opacity: 1;
+        transform: translateX(0);
+        pointer-events: all;
+    }
+}
+
+// ----------------------- home-location styling starts here --------------------- //
+.home-location {
+    .wrapper {
+        gap: 2rem;
+    }
+    .text-box {
+        flex-direction: column;
+        margin: 0 auto;
+        gap: 1rem;
+        text-align: center;
+    }
+}
+
+// ------------------------- media query starts here ------------------- //
+@media screen and (max-width: 960px) {
+    body {
+        font-size: .8rem;
+    }
+    .links {
+        display: none;
+    }
+    .nav-side {
+        display: flex;
+    }
+    .home-intro {
+        &__btn {
+            justify-content: center;
+        }
+    }
+}
+
+@media screen and (max-width: 693px) {
+    .wrapper {
+        padding: 6em 1rem;
+    }
+    // change animation style when the user reach mobile screen
+    .home-menu,
+    .home-about-us,
+    .home-hire {
+        .image-box {
+            transform: translateX(0);
+        }
+        .text-box {
+            transform: translateX(0) translateY(100%);
+            flex: 1 1 100%;
+        }
+        .transform-box {
+            transform: translateY(0);
+        }
+    }
+}
