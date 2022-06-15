@@ -453,6 +453,7 @@ p {
 .home-intro .text-box {
   border-radius: 1rem;
   padding: 2rem;
+  color: white;
 }
 
 .home-intro .text-box p {

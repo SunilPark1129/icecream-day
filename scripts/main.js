@@ -166,3 +166,52 @@ function pageMove(currentIndex) {
         homeMenuText.classList.remove('transform-box');
     }
 }
+
+// -------------------- home-intro scripts ------------------ //
+const homeIntroImage = document.querySelectorAll('.home-intro .image-box img'),
+    homeIntroBtn = document.querySelectorAll('.home-intro__btn p'),
+    homeIntroText = document.querySelectorAll('.home-intro .text-box p'),
+    homeIntroSpan = document.querySelectorAll('.home-intro__text-bg span');
+let homePrevIndex = 0;
+
+for (let i = 0; i < homeIntroBtn.length; i++) {
+    ((i) => {
+        homeIntroBtn[i].addEventListener("click", () => {
+            let x = i;
+            // prevents from restarting the function when the user presses it once more
+            if (homePrevIndex != i) {
+                homeIntro(i);
+            }
+            homePrevIndex = x;
+        });
+    })(i);
+}
+
+// this function exchanges images and texts whenever the user selects an item
+function homeIntro(n) {
+
+    // current index of element is now visible by removing display-none element
+    homeIntroBtn[n].style.backgroundColor = 'rgb(255, 113, 113)';
+    homeIntroImage[n].classList.remove('display-none');
+    homeIntroText[n].classList.remove('display-none');
+
+    // to show the animation effect, remove transition elements and put a new one to each spans
+    for (let j = 0; j < homeIntroSpan.length; j++) {
+        homeIntroSpan[j].classList.remove(`spanfade${j}`);
+    }
+
+    delay(100).then(() => {
+        for (let i = 0; i < homeIntroSpan.length; i++) {
+            homeIntroSpan[i].classList.add(`spanfade${i}`);
+        }
+    });
+
+    // all elements are invisible except for the current index
+    for (let i = 0; i < homeIntroText.length; i++) {
+        if (n != i) {
+            homeIntroBtn[i].style.backgroundColor = '';
+            homeIntroImage[i].classList.add('display-none');
+            homeIntroText[i].classList.add('display-none');
+        }
+    }
+}
