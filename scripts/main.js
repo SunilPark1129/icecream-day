@@ -215,3 +215,280 @@ function homeIntro(n) {
         }
     }
 }
+
+// ----------------- home-menu, about-us, hire scripts ---------------- //
+const homeMenuImage = document.querySelector('.home-menu .image-box'),
+    homeMenuText = document.querySelector('.home-menu .text-box'),
+    homeAboutImage = document.querySelector('.home-about-us .image-box'),
+    homeAboutText = document.querySelector('.home-about-us .text-box'),
+    homeHireImage = document.querySelector('.home-hire .image-box'),
+    homeHireText = document.querySelector('.home-hire .text-box');
+
+window.addEventListener("scroll", () => {
+    let windowHeight = Math.max(
+        window.innerHeight, document.documentElement.clientHeight
+    );
+
+    let menuHomePosition = document.querySelector('.home-menu').offsetTop,
+        aboutUsPosition = document.querySelector('.home-about-us').offsetTop,
+        hirePosition = document.querySelector('.home-hire').offsetTop;
+
+    // transform position changes when the current scroll position reaches a calculated value
+    if (document.documentElement.scrollTop >= menuHomePosition + (350 - windowHeight)) {
+        homeMenuImage.classList.add('transform-box');
+        homeMenuText.classList.add('transform-box');
+    } else {
+        homeMenuImage.classList.remove('transform-box');
+        homeMenuText.classList.remove('transform-box');
+    }
+    if (document.documentElement.scrollTop >= aboutUsPosition + (350 - windowHeight)) {
+        homeAboutImage.classList.add('transform-box');
+        homeAboutText.classList.add('transform-box');
+    } else {
+        homeAboutImage.classList.remove('transform-box');
+        homeAboutText.classList.remove('transform-box');
+    }
+    if (document.documentElement.scrollTop >= hirePosition + (350 - windowHeight)) {
+        homeHireImage.classList.add('transform-box');
+        homeHireText.classList.add('transform-box');
+    } else {
+        homeHireImage.classList.remove('transform-box');
+        homeHireText.classList.remove('transform-box');
+    }
+});
+
+// --------------------------- menu script --------------------------- //
+const menuItemBox = document.getElementsByClassName('item-box'),
+    menuItems = document.querySelectorAll('.item-box .items'),
+    menuStyle = menuItemBox[0].getElementsByClassName('items'),
+    menuFlavor = menuItemBox[1].getElementsByClassName('items'),
+    menuCone = menuItemBox[2].getElementsByClassName('items'),
+    menuTotal = document.querySelector('.menu-total');
+
+// all the ice creams information are stored in here
+const menuItemArray = {
+    style: [{
+            id: 1,
+            text: 'Soft Ice Cream',
+            price: 3.00,
+            needCup: true
+        },
+        {
+            id: 2,
+            text: 'Hard Ice Cream',
+            price: 3.00,
+            needCup: true
+        },
+        {
+            id: 3,
+            text: 'Sorbet',
+            price: 4.00,
+            needCup: true
+        },
+        {
+            id: 4,
+            text: 'Frozen Yogurt',
+            price: 5.95,
+            needCup: false
+        },
+        {
+            id: 5,
+            text: 'Milkshake',
+            price: 5.95,
+            needCup: false
+        }
+    ],
+    flavor: [{
+            id: 1,
+            text: "Vanilla"
+        },
+        {
+            id: 2,
+            text: "Chocolate"
+        },
+        {
+            id: 3,
+            text: "Pistachio"
+        },
+        {
+            id: 4,
+            text: "Mango"
+        },
+        {
+            id: 5,
+            text: "Strawberry"
+        },
+        {
+            id: 6,
+            text: "Banana"
+        },
+        {
+            id: 7,
+            text: "Mint"
+        },
+        {
+            id: 8,
+            text: "Cookies N' Cream"
+        },
+        {
+            id: 9,
+            text: "Green Tea"
+        }
+    ],
+    cone: [{
+            id: 1,
+            text: "Sugar Cone",
+            price: .50
+        },
+        {
+            id: 2,
+            text: "Waffle Cone",
+            price: 1.00
+        },
+        {
+            id: 3,
+            text: "Waffle Bowl",
+            price: 2.00
+        },
+        {
+            id: 4,
+            text: "Cup",
+            price: .50
+        }
+    ]
+};
+
+
+let icecream = {
+    // array[0] is name , array[1] is price
+    style: new Array(2),
+    flavor: '',
+    cone: new Array(2),
+}
+
+// they are the output to display the name and total
+let itemName = document.getElementById('item-name'),
+    itemPrice = document.getElementById('item-price');
+
+// check on an item that does not require a cup
+let isCupAvailable = true;
+
+// moves to a function when an menu item is slectetd
+for (let i = 0; i < menuStyle.length; i++) {
+    ((i) => {
+        menuStyle[i].addEventListener("click", () => {
+            getMenuStyle(i);
+        });
+    })(i);
+}
+
+for (let i = 0; i < menuFlavor.length; i++) {
+    ((i) => {
+        menuFlavor[i].addEventListener("click", () => {
+            getMenuFlavor(i);
+        });
+    })(i);
+}
+
+for (let i = 0; i < menuCone.length; i++) {
+    ((i) => {
+        menuCone[i].addEventListener("click", () => {
+            getMenuCone(i);
+        });
+    })(i);
+}
+
+// user clicks a button to reset
+document.querySelector('.menu-btn').addEventListener("click", () => {
+    resetMenuItems();
+});
+
+function getMenuStyle(n) {
+    isCupAvailable = true;
+    menuItemBackground(menuStyle, n);
+    menuItemArray['style'].filter(arrayList => {
+        if (arrayList.id === n + 1) {
+            icecream.style[0] = arrayList.text;
+            icecream.style[1] = arrayList.price;
+
+            // when the selected item does not require a cone
+            if (arrayList.needCup === false) {
+                icecream.cone[0] = '';
+                icecream.cone[1] = '';
+                for (let i = 0; i < menuCone.length; i++) {
+                    menuCone[i].classList.remove('item-background');
+                }
+                menuItemBox[2].classList.add('display-none');
+                isCupAvailable = false;
+            } else if (!icecream.flavor == '') {
+                menuItemBox[2].classList.remove('display-none');
+            }
+        }
+    });
+
+    // when the item is required a cone, but selected other items, then remove the total
+    if (icecream.cone[0] == '' && !icecream.flavor == '' && isCupAvailable) {
+        menuTotal.classList.add('display-none');
+    }
+    menuItemBox[1].classList.remove('display-none');
+    window.scrollTo(0, menuItemBox[1].offsetTop);
+    addArrays();
+}
+
+function getMenuFlavor(n) {
+    let windowHeight = Math.max(
+        window.innerHeight, document.documentElement.clientHeight
+    );
+    menuItemBackground(menuFlavor, n);
+    menuItemArray['flavor'].filter(arrayList => arrayList.id === n + 1 ? icecream.flavor = arrayList.text : -1);
+    if (isCupAvailable) {
+        menuItemBox[2].classList.remove('display-none');
+        window.scrollTo(0, menuItemBox[2].offsetTop);
+    } else {
+        menuTotal.classList.remove('display-none');
+        window.scrollTo(0, menuTotal.offsetTop - (windowHeight - menuTotal.offsetHeight - 100));
+    }
+    addArrays();
+}
+
+function getMenuCone(n) {
+    let windowHeight = Math.max(
+        window.innerHeight, document.documentElement.clientHeight
+    );
+    menuItemBackground(menuCone, n);
+    menuItemArray['cone'].filter(arrayList => {
+        if (arrayList.id === n + 1) {
+            icecream.cone[0] = arrayList.text;
+            icecream.cone[1] = arrayList.price;
+        }
+    });
+    menuTotal.classList.remove('display-none');
+    window.scrollTo(0, menuTotal.offsetTop - (windowHeight - menuTotal.offsetHeight - 100));
+    addArrays();
+}
+
+// adds a background color to the selected item
+function menuItemBackground(target, currentIndex) {
+    for (let i = 0; i < target.length; i++) {
+        target[i].classList.remove('item-background');
+    }
+    target[currentIndex].classList.add('item-background');
+}
+
+// whenever new item is selected, it is stored in an array
+function addArrays() {
+    let icecreamName = icecream.flavor + ' ' + icecream.style[0] + ' ' + icecream.cone[0];
+    let icecreamPrice = '$ ' + (icecream.style[1] + icecream.cone[1]);
+    itemName.innerHTML = icecreamName;
+    itemPrice.innerHTML = icecreamPrice;
+}
+
+function resetMenuItems() {
+    for (let i = 0; i < menuItems.length; i++) {
+        menuItems[i].classList.remove('item-background');
+    }
+    menuItemBox[1].classList.add('display-none');
+    menuItemBox[2].classList.add('display-none');
+    menuTotal.classList.add('display-none');
+    window.scrollTo(0, menuItemBox[0].offsetTop - 100);
+}

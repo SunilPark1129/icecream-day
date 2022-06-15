@@ -30,14 +30,6 @@ main {
     overflow: hidden;
 }
 
-.display-block {
-    display: block;
-}
-
-.display-none {
-    display: none;
-}
-
 .home-page>section:nth-child(2n),
 .menu-page>section:nth-child(2n+3) {
     background-color: rgb(245, 245, 245);
@@ -747,6 +739,14 @@ p {
     .copy-right {
         justify-content: center;
     }
+}
+
+.display-block {
+    display: block;
+}
+
+.display-none {
+    display: none;
 }
 
 // ------------------------- media query starts here ------------------- //

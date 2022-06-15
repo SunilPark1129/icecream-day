@@ -30,14 +30,6 @@ main {
   overflow: hidden;
 }
 
-.display-block {
-  display: block;
-}
-
-.display-none {
-  display: none;
-}
-
 .home-page > section:nth-child(2n),
 .menu-page > section:nth-child(2n+3) {
   background-color: whitesmoke;
@@ -954,6 +946,14 @@ p {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
+}
+
+.display-block {
+  display: block;
+}
+
+.display-none {
+  display: none;
 }
 
 @media screen and (max-width: 960px) {
