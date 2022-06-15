@@ -641,6 +641,99 @@ p {
     }
 }
 
+// ---------------------- event-page styling stars here ------------------ //
+// ---------------------- event-intro styling stars here ------------------ //
+.event-intro {
+    .wrapper {
+        padding: 0em 0;
+    }
+    .text-box {
+        background: linear-gradient(45deg, rgba(48, 48, 48, 0.808) 16rem, transparent 0%, transparent 85%, rgba(48, 48, 48, 0.808) 1rem);
+        width: 100%;
+        height: 30rem;
+        line-height: 1.5rem;
+        position: relative;
+        flex-direction: column;
+        padding: 2rem;
+        justify-content: flex-end;
+    }
+    h2 {
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+        font-size: 1.4rem;
+        color: white;
+    }
+    p {
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+        color: white;
+        font-size: 1rem;
+        font-weight: 900;
+    }
+    .bg-image {
+        position: absolute;
+        left: 1rem;
+        top: 1rem;
+        right: 1rem;
+        bottom: 1rem;
+        background-image: url(../imgs/event_intro.jpg);
+        background-position: 50% 20%;
+        background-repeat: no-repeat;
+        background-size: cover;
+        z-index: -1;
+    }
+}
+
+// ---------------------- event-list styling stars here ------------------ //
+.event-list {
+    .wrapper {
+        gap: 2rem;
+    }
+    section {
+        display: flex;
+        flex-wrap: wrap;
+    }
+    .image-box {
+        flex: 1 1 30%;
+        border-radius: 0;
+        min-width: 20rem;
+        height: 20rem;
+    }
+    h2 {
+        color: var(--dark-color);
+    }
+    .text-box {
+        flex: 1 1 50%;
+        flex-direction: column;
+        gap: 2rem;
+        padding: 1rem 2rem;
+        background-color: rgb(248, 248, 248);
+        min-height: 20rem;
+    }
+}
+
+// ------------------------ footer styling starts here ---------------------- //
+.footer {
+    background-color: rgb(26, 26, 26);
+    .wrapper {
+        padding: 1rem;
+        gap: .5rem;
+        flex-direction: column;
+    }
+    .image-box {
+        border-radius: 0;
+    }
+    img {
+        width: 10rem;
+    }
+    p {
+        font-size: .8rem;
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+        color: rgb(192, 192, 192);
+    }
+    .copy-right {
+        justify-content: center;
+    }
+}
+
 // ------------------------- media query starts here ------------------- //
 @media screen and (max-width: 960px) {
     body {
@@ -660,6 +753,15 @@ p {
     // items in the menu now have 4 per row.
     .items {
         flex: 0 0 25%;
+    }
+    .event-list {
+        .image-box {
+            height: 15rem;
+        }
+        .text-box {
+            flex: 1 1 100%;
+            min-height: auto;
+        }
     }
 }
 
