@@ -27,7 +27,15 @@ html {
 }
 
 main {
-    // overflow: hidden;
+    overflow: hidden;
+}
+
+.display-block {
+    display: block;
+}
+
+.display-none {
+    display: none;
 }
 
 .home-page>section:nth-child(2n),
@@ -75,6 +83,13 @@ main {
 
 .event-page {
     order: 3;
+}
+
+// main is invisible until this element is removed
+// prevents scrolling when the cover page is being applied
+.main-hidden {
+    height: 0;
+    overflow: hidden;
 }
 
 .wrapper {

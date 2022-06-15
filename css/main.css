@@ -26,6 +26,18 @@ html {
   scroll-behavior: smooth;
 }
 
+main {
+  overflow: hidden;
+}
+
+.display-block {
+  display: block;
+}
+
+.display-none {
+  display: none;
+}
+
 .home-page > section:nth-child(2n),
 .menu-page > section:nth-child(2n+3) {
   background-color: whitesmoke;
@@ -98,6 +110,11 @@ html {
   -webkit-box-ordinal-group: 4;
       -ms-flex-order: 3;
           order: 3;
+}
+
+.main-hidden {
+  height: 0;
+  overflow: hidden;
 }
 
 .wrapper {
