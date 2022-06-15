@@ -27,7 +27,7 @@ html {
 }
 
 main {
-    // overflow: hidden;
+    overflow: hidden;
 }
 
 .home-page>section:nth-child(2n),
@@ -75,6 +75,13 @@ main {
 
 .event-page {
     order: 3;
+}
+
+// main is invisible until this element is removed
+// prevents scrolling when the cover page is being applied
+.main-hidden {
+    height: 0;
+    overflow: hidden;
 }
 
 .wrapper {
@@ -346,7 +353,7 @@ p {
     .text-box {
         border-radius: 1rem;
         padding: 2rem;
-        // color: white;
+        color: white;
         p {
             z-index: 2;
         }
@@ -732,6 +739,14 @@ p {
     .copy-right {
         justify-content: center;
     }
+}
+
+.display-block {
+    display: block;
+}
+
+.display-none {
+    display: none;
 }
 
 // ------------------------- media query starts here ------------------- //
