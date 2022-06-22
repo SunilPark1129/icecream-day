@@ -6,7 +6,7 @@ Check preview website - [Link](https://sunilpark1129.github.io/icecream-day/)
 ## Project Description
 Ice Cream Day is an ice cream shop, and their website provides a list of sales and ongoing events. This time, I wanted to create a website in a new way, so I started with the idea of moving the pages horizontally. In this project, I paid more attention to animation effects to take a new challenge with css.
 
-## Features / Usage
+## Features
 |Feature|Description|
 |:--:|:--:|
 |Navbar Cover|<img src="https://user-images.githubusercontent.com/106734133/173740659-2f7f1054-5a82-45bf-9105-ba52485f7a37.gif" width="400" height="400"><br>When a user visits the website, it wraps all the pages in a navbar. When the button is selected, the cover of the wrapped navbar disappears while moving to the page and the animation is triggered.|
