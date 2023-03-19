@@ -109,6 +109,8 @@ p {
   cursor: pointer;
   background-color: var(--dark-color);
   transition: background-color 0.3s;
+  border: none;
+  outline: 1px solid transparent;
 }
 .btn:hover {
   background-color: var(--hover-color);
@@ -326,13 +328,16 @@ p {
   flex: 1 1 100%;
   gap: 0.5rem;
 }
-.home-intro__btn p {
+.home-intro__btn button {
   transition: background-color 0.5s;
   border-radius: 0.5rem;
   padding: 0.5rem;
   cursor: pointer;
+  border: none;
+  outline: 1px solid transparent;
+  background-color: transparent;
 }
-.home-intro__btn p:hover {
+.home-intro__btn button:hover {
   background-color: var(--hover-color);
 }
 .home-intro .text-box {
@@ -503,7 +508,7 @@ p {
   width: 10rem;
   flex: 1 1 100%;
 }
-.menu-price h3 {
+.menu-price h4 {
   flex: 1 1 100%;
   text-align: center;
 }
@@ -545,7 +550,7 @@ p {
   left: 0;
   filter: saturate(80%);
 }
-.items h2 {
+.items p {
   font-size: 1em;
   text-align: center;
   margin: 1rem 0;
@@ -730,19 +735,19 @@ p {
     padding: 6em 1rem;
   }
   .home-menu .image-box,
-.home-about-us .image-box,
-.home-hire .image-box {
+  .home-about-us .image-box,
+  .home-hire .image-box {
     transform: translateX(0);
   }
   .home-menu .text-box,
-.home-about-us .text-box,
-.home-hire .text-box {
+  .home-about-us .text-box,
+  .home-hire .text-box {
     transform: translateX(0) translateY(100%);
     flex: 1 1 100%;
   }
   .home-menu .transform-box,
-.home-about-us .transform-box,
-.home-hire .transform-box {
+  .home-about-us .transform-box,
+  .home-hire .transform-box {
     transform: translateY(0);
   }
   .menu-event .text-box {

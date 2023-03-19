@@ -2,824 +2,836 @@
 @import url("https://fonts.googleapis.com/css2?family=Architects+Daughter&family=Gluten:wght@300&display=swap");
 // when the page loads prevent the transition
 body.preload * {
-    transition: background-color 0s, opacity 0s, color 0s, width 0s, height 0s, padding 0s, margin 0s !important;
+  transition: background-color 0s, opacity 0s, color 0s, width 0s, height 0s,
+    padding 0s, margin 0s !important;
 }
 
 // ------------------------ glober elements setting ------------------------ //
 * {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-    list-style: none;
-    text-decoration: none;
-    font-family: "Gluten", cursive;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  text-decoration: none;
+  font-family: "Gluten", cursive;
 }
 
 :root {
-    --main-color: rgb(229, 27, 35);
-    --dark-color: rgb(245, 128, 128);
-    --hover-color: rgb(255, 225, 225);
-    --nav-height: 4rem;
+  --main-color: rgb(229, 27, 35);
+  --dark-color: rgb(245, 128, 128);
+  --hover-color: rgb(255, 225, 225);
+  --nav-height: 4rem;
 }
 
 html {
-    scroll-behavior: smooth;
+  scroll-behavior: smooth;
 }
 
 main {
-    overflow: hidden;
+  overflow: hidden;
 }
 
-.home-page>section:nth-child(2n),
-.menu-page>section:nth-child(2n+3) {
-    background-color: rgb(245, 245, 245);
+.home-page > section:nth-child(2n),
+.menu-page > section:nth-child(2n + 3) {
+  background-color: rgb(245, 245, 245);
 }
 
 .home-page,
 .menu-page,
 .event-page {
-    display: flex;
-    width: 100%;
-    flex-direction: column;
-    section {
-        overflow: hidden;
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  section {
+    overflow: hidden;
+  }
+  // each sections title
+  header {
+    flex: 1 1 100%;
+    text-align: center;
+    h1 {
+      color: var(--main-color);
     }
-    // each sections title
-    header {
-        flex: 1 1 100%;
-        text-align: center;
-        h1 {
-            color: var(--main-color);
-        }
-        p {
-            color: var(--main-color);
-        }
+    p {
+      color: var(--main-color);
     }
+  }
 }
 
 // the purpose of displaying movement effect animation between pages move
 .overall-wrapper {
-    display: flex;
-    flex-direction: row;
-    width: 300%;
+  display: flex;
+  flex-direction: row;
+  width: 300%;
 }
 
 // orders to use in JavaScript
 .home-page {
-    order: 1;
+  order: 1;
 }
 
 .menu-page {
-    order: 3;
+  order: 3;
 }
 
 .event-page {
-    order: 3;
+  order: 3;
 }
 
 // main is invisible until this element is removed
 // prevents scrolling when the cover page is being applied
 .main-hidden {
-    height: 0;
-    overflow: hidden;
+  height: 0;
+  overflow: hidden;
 }
 
 .wrapper {
-    display: flex;
-    max-width: 80rem;
-    padding: 6em 2rem;
-    flex-wrap: wrap;
-    margin: 0 auto;
-    gap: 1rem;
+  display: flex;
+  max-width: 80rem;
+  padding: 6em 2rem;
+  flex-wrap: wrap;
+  margin: 0 auto;
+  gap: 1rem;
 }
 
 h1 {
-    font-size: 1.4em;
+  font-size: 1.4em;
 }
 
 p {
-    font-size: 1.2em;
+  font-size: 1.2em;
 }
 
 .btn {
-    flex: 1 1 100%;
-    text-align: center;
-    padding: 1rem;
-    cursor: pointer;
-    background-color: var(--dark-color);
-    transition: background-color 0.3s;
-    &:hover {
-        background-color: var(--hover-color);
-    }
+  flex: 1 1 100%;
+  text-align: center;
+  padding: 1rem;
+  cursor: pointer;
+  background-color: var(--dark-color);
+  transition: background-color 0.3s;
+  border: none;
+  outline: 1px solid transparent;
+  &:hover {
+    background-color: var(--hover-color);
+  }
 }
 
 .text-box {
-    position: relative;
-    display: flex;
-    margin: auto;
-    overflow: hidden;
-    line-height: 1.5em;
-    color: rgb(49, 49, 49);
-    span {
-        color: var(--main-color);
-    }
+  position: relative;
+  display: flex;
+  margin: auto;
+  overflow: hidden;
+  line-height: 1.5em;
+  color: rgb(49, 49, 49);
+  span {
+    color: var(--main-color);
+  }
 }
 
 .image-box {
-    border-radius: 50%;
-    margin: auto;
-    overflow: hidden;
-    img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-        object-position: center;
-    }
+  border-radius: 50%;
+  margin: auto;
+  overflow: hidden;
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+  }
 }
 
 // ------------------------ nav styling starts here ------------------------- //
 .nav {
-    position: relative;
-    z-index: 999;
-    transition: height 1s;
-    height: var(--nav-height);
-    &__wrapper {
-        display: flex;
-        height: 100%;
-        background-color: var(--main-color);
-    }
+  position: relative;
+  z-index: 999;
+  transition: height 1s;
+  height: var(--nav-height);
+  &__wrapper {
+    display: flex;
+    height: 100%;
+    background-color: var(--main-color);
+  }
 }
 
 // covering the whole page until link is selected
 .nav-cover {
-    height: 100vh;
-    transition: height 0s;
-    min-height: 40rem;
+  height: 100vh;
+  transition: height 0s;
+  min-height: 40rem;
 }
 
 .logo {
-    position: absolute;
-    top: 0;
-    left: 0;
-    transition-property: left, transform, top, height;
-    transition-delay: 0.4s, 0.4s, 0s, 0s;
-    transition-duration: 0.8s;
-    height: var(--nav-height);
-    img {
-        height: 100%;
-    }
+  position: absolute;
+  top: 0;
+  left: 0;
+  transition-property: left, transform, top, height;
+  transition-delay: 0.4s, 0.4s, 0s, 0s;
+  transition-duration: 0.8s;
+  height: var(--nav-height);
+  img {
+    height: 100%;
+  }
 }
 
 // when this element is removed, logo will get its own initial size and position
 .logo-resize {
-    height: 5em;
-    top: 30%;
-    left: 50%;
-    transform: translateX(-50%);
+  height: 5em;
+  top: 30%;
+  left: 50%;
+  transform: translateX(-50%);
 }
 
 // links with desktop media query
 .links {
+  display: flex;
+  margin: 0 0 0 auto;
+  li {
     display: flex;
-    margin: 0 0 0 auto;
-    li {
-        display: flex;
-        width: 8em;
-        height: var(--nav-height);
-        color: white;
-        align-items: center;
-        justify-content: center;
-        font-weight: bolder;
-        cursor: pointer;
-        transition: background-color 0.4s;
-        &:hover {
-            background-color: rgba(255, 197, 197, 0.822);
-        }
+    width: 8em;
+    height: var(--nav-height);
+    color: white;
+    align-items: center;
+    justify-content: center;
+    font-weight: bolder;
+    cursor: pointer;
+    transition: background-color 0.4s;
+    &:hover {
+      background-color: rgba(255, 197, 197, 0.822);
     }
+  }
 }
 
 // when this element is removed, links will get its own initial position
 .links.nav-cover-on {
-    display: flex;
-    margin: auto;
-    transform: translateY(100%);
+  display: flex;
+  margin: auto;
+  transform: translateY(100%);
 }
 
 .nav-side {
-    display: none;
-    margin: auto 1rem auto auto;
-    height: 2.5rem;
-    width: 2.5rem;
-    border-radius: 50%;
-    cursor: pointer;
-    transition: background-color 0.3s;
-    &:hover {
-        background-color: rgba(51, 51, 51, 0.219);
-    }
+  display: none;
+  margin: auto 1rem auto auto;
+  height: 2.5rem;
+  width: 2.5rem;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  &:hover {
+    background-color: rgba(51, 51, 51, 0.219);
+  }
 }
 
 // hamberger icon - side menu button
 .nav-side-icon {
-    position: relative;
-    margin: auto;
-    width: 1.5rem;
-    height: 1rem;
-    // displaying navbar icon lines
-    span {
-        position: absolute;
-        padding: 0.1rem;
-        background-color: white;
-        border-radius: 2rem;
-        transition-property: top, transform;
-        transition-duration: 0.5s;
-        left: 0;
-        right: 0;
-        // each spans have a line with different position
-        &:nth-child(1) {
-            top: 0;
-        }
-        &:nth-child(2) {
-            transform: translateY(-50%);
-            top: 50%;
-        }
-        &:nth-child(3) {
-            transform: translateY(-100%);
-            top: 100%;
-        }
-        // when nav-side icon is selected, new classes will apply to show animation effect
-        &:nth-child(1).side-icon-transition0 {
-            top: 50%;
-            transform: translateY(-50%) rotateZ(45deg);
-        }
-        &:nth-child(2).side-icon-transition1 {
-            transform: translateY(-50%) rotateZ(135deg);
-        }
-        &:nth-child(3).side-icon-transition2 {
-            top: 50%;
-            transform: translateY(-50%) rotateZ(-45deg);
-        }
+  position: relative;
+  margin: auto;
+  width: 1.5rem;
+  height: 1rem;
+  // displaying navbar icon lines
+  span {
+    position: absolute;
+    padding: 0.1rem;
+    background-color: white;
+    border-radius: 2rem;
+    transition-property: top, transform;
+    transition-duration: 0.5s;
+    left: 0;
+    right: 0;
+    // each spans have a line with different position
+    &:nth-child(1) {
+      top: 0;
     }
+    &:nth-child(2) {
+      transform: translateY(-50%);
+      top: 50%;
+    }
+    &:nth-child(3) {
+      transform: translateY(-100%);
+      top: 100%;
+    }
+    // when nav-side icon is selected, new classes will apply to show animation effect
+    &:nth-child(1).side-icon-transition0 {
+      top: 50%;
+      transform: translateY(-50%) rotateZ(45deg);
+    }
+    &:nth-child(2).side-icon-transition1 {
+      transform: translateY(-50%) rotateZ(135deg);
+    }
+    &:nth-child(3).side-icon-transition2 {
+      top: 50%;
+      transform: translateY(-50%) rotateZ(-45deg);
+    }
+  }
 }
 
 .nav-side-actived {
-    background-color: rgba(51, 51, 51, 0.219);
+  background-color: rgba(51, 51, 51, 0.219);
 }
 
 // prevent displaying over width for nav-side-links
 .nav-side-container {
-    position: fixed;
-    left: 0;
-    right: 0;
-    top: 4rem;
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 4rem;
 }
 
 // when nav-side icon is selected, side links will display
 .nav-side-links {
-    position: absolute;
-    top: 0;
-    left: 100%;
-    background-color: whitesmoke;
-    padding: 1rem;
-    width: 70%;
-    transition: transform 0.5s;
-    ul {
-        display: flex;
-        flex-direction: column;
-        gap: 1rem;
+  position: absolute;
+  top: 0;
+  left: 100%;
+  background-color: whitesmoke;
+  padding: 1rem;
+  width: 70%;
+  transition: transform 0.5s;
+  ul {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+  li {
+    font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+    display: flex;
+    color: black;
+    font-size: 1rem;
+    padding: 0.5rem 1rem;
+    border: 0.1rem solid rgb(211, 211, 211);
+    justify-content: center;
+    cursor: pointer;
+    background-color: rgb(240, 240, 240);
+    transition: background-color 0.4s;
+    &:hover {
+      background-color: var(--dark-color);
     }
-    li {
-        font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
-        display: flex;
-        color: black;
-        font-size: 1rem;
-        padding: 0.5rem 1rem;
-        border: 0.1rem solid rgb(211, 211, 211);
-        justify-content: center;
-        cursor: pointer;
-        background-color: rgb(240, 240, 240);
-        transition: background-color 0.4s;
-        &:hover {
-            background-color: var(--dark-color);
-        }
-    }
+  }
 }
 
 // when nav-side icon is selected this will add into nav-side-links class
 .nav-side-actiavted {
-    transform: translateX(-100%);
+  transform: translateX(-100%);
 }
 
 // prevents the nav-side from being visible when in mobile size
 // when btn-links clicked, removes this class
 .nav-side.nav-cover-on {
-    display: none;
+  display: none;
 }
 
 // prevent scrolling when nav-side is activated
 .screen-disable {
-    display: none;
-    position: fixed;
-    left: 0;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    background-color: rgba(26, 26, 26, 0.397);
-    z-index: 998;
+  display: none;
+  position: fixed;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(26, 26, 26, 0.397);
+  z-index: 998;
 }
 
 // ---------------------- home-page styling starts here ----------------------- //
 // ---------------------- home-intro styling starts here ---------------------- //
 .home-intro {
-    .image-box {
-        width: 20em;
-        height: 20em;
+  .image-box {
+    width: 20em;
+    height: 20em;
+  }
+  &__btn {
+    display: flex;
+    justify-content: right;
+    font-variant-caps: all-small-caps;
+    flex: 1 1 100%;
+    gap: 0.5rem;
+    button {
+      transition: background-color 0.5s;
+      border-radius: 0.5rem;
+      padding: 0.5rem;
+      cursor: pointer;
+      border: none;
+      outline: 1px solid transparent;
+      background-color: transparent;
     }
-    &__btn {
-        display: flex;
-        justify-content: right;
-        font-variant-caps: all-small-caps;
-        flex: 1 1 100%;
-        gap: 0.5rem;
-        p {
-            transition: background-color 0.5s;
-            border-radius: 0.5rem;
-            padding: 0.5rem;
-            cursor: pointer;
-        }
-        p:hover {
-            background-color: var(--hover-color);
-        }
+    button:hover {
+      background-color: var(--hover-color);
     }
-    .text-box {
-        border-radius: 1rem;
-        padding: 2rem;
-        color: white;
-        p {
-            z-index: 2;
-        }
+  }
+  .text-box {
+    border-radius: 1rem;
+    padding: 2rem;
+    color: white;
+    p {
+      z-index: 2;
     }
-    // background is applied based on the size of the text box
-    &__text-bg {
-        // configured span to show animation effect
-        span {
-            position: absolute;
-            top: -100%;
-            width: 20%;
-            height: 100%;
-            background-color: rgb(243, 212, 212);
-            z-index: 1;
-        }
-        span:first-child {
-            left: 0;
-        }
-        span:nth-child(2) {
-            left: 20%;
-        }
-        span:nth-child(3) {
-            left: 40%;
-        }
-        span:nth-child(4) {
-            left: 60%;
-        }
-        span:last-child {
-            left: 80%;
-        }
-        // class add into each span to show the animation effect
-        .spanfade0,
-        .spanfade1,
-        .spanfade2,
-        .spanfade3,
-        .spanfade4 {
-            background-color: var(--dark-color);
-            top: 0;
-            transition-property: top, background-color;
-            transition-duration: 0.6s;
-        }
-        .spanfade0 {
-            transition-delay: 0s;
-        }
-        .spanfade1 {
-            transition-delay: 0.1s;
-        }
-        .spanfade2 {
-            transition-delay: 0.2s;
-        }
-        .spanfade3 {
-            transition-delay: 0.3s;
-        }
-        .spanfade4 {
-            transition-delay: 0.4s;
-        }
+  }
+  // background is applied based on the size of the text box
+  &__text-bg {
+    // configured span to show animation effect
+    span {
+      position: absolute;
+      top: -100%;
+      width: 20%;
+      height: 100%;
+      background-color: rgb(243, 212, 212);
+      z-index: 1;
     }
+    span:first-child {
+      left: 0;
+    }
+    span:nth-child(2) {
+      left: 20%;
+    }
+    span:nth-child(3) {
+      left: 40%;
+    }
+    span:nth-child(4) {
+      left: 60%;
+    }
+    span:last-child {
+      left: 80%;
+    }
+    // class add into each span to show the animation effect
+    .spanfade0,
+    .spanfade1,
+    .spanfade2,
+    .spanfade3,
+    .spanfade4 {
+      background-color: var(--dark-color);
+      top: 0;
+      transition-property: top, background-color;
+      transition-duration: 0.6s;
+    }
+    .spanfade0 {
+      transition-delay: 0s;
+    }
+    .spanfade1 {
+      transition-delay: 0.1s;
+    }
+    .spanfade2 {
+      transition-delay: 0.2s;
+    }
+    .spanfade3 {
+      transition-delay: 0.3s;
+    }
+    .spanfade4 {
+      transition-delay: 0.4s;
+    }
+  }
 }
 
 // ------------ home-menu, home-about-us and home-hire styling starts here --------------- //
 .home-menu,
 .home-about-us,
 .home-hire {
-    .wrapper {
-        gap: 2rem;
-    }
-    .text-box {
-        flex: 1 1 50%;
-        flex-direction: column;
-        gap: 2rem;
-        transition-property: opacity, transform;
-        transition-duration: 1s;
-        pointer-events: none;
-    }
-    .text-box {
-        opacity: 0.5;
-    }
-    .image-box {
-        opacity: 0.5;
-        width: 20em;
-        height: 20em;
-        transition-property: opacity, transform;
-        transition-duration: 0.8s;
-    }
+  .wrapper {
+    gap: 2rem;
+  }
+  .text-box {
+    flex: 1 1 50%;
+    flex-direction: column;
+    gap: 2rem;
+    transition-property: opacity, transform;
+    transition-duration: 1s;
+    pointer-events: none;
+  }
+  .text-box {
+    opacity: 0.5;
+  }
+  .image-box {
+    opacity: 0.5;
+    width: 20em;
+    height: 20em;
+    transition-property: opacity, transform;
+    transition-duration: 0.8s;
+  }
 }
 
 // image and text boxs start at the position of the specified value
 .home-menu,
 .home-hire {
-    .image-box {
-        transform: translateX(-50%);
-    }
-    .text-box {
-        transform: translateX(20%);
-    }
+  .image-box {
+    transform: translateX(-50%);
+  }
+  .text-box {
+    transform: translateX(20%);
+  }
 }
 
 .home-about-us {
-    .wrapper {
-        flex-direction: row-reverse;
-    }
-    .image-box {
-        transform: translateX(50%);
-    }
-    .text-box {
-        transform: translateX(-20%);
-    }
+  .wrapper {
+    flex-direction: row-reverse;
+  }
+  .image-box {
+    transform: translateX(50%);
+  }
+  .text-box {
+    transform: translateX(-20%);
+  }
 }
 
 // when the current scroll value is reached the calculated value, add this class
 .home-menu,
 .home-about-us,
 .home-hire {
-    .transform-box {
-        opacity: 1;
-        transform: translateX(0);
-        pointer-events: all;
-    }
+  .transform-box {
+    opacity: 1;
+    transform: translateX(0);
+    pointer-events: all;
+  }
 }
 
 // ----------------------- home-location styling starts here --------------------- //
 .home-location {
-    .wrapper {
-        gap: 2rem;
-    }
-    .text-box {
-        flex-direction: column;
-        margin: 0 auto;
-        gap: 1rem;
-        text-align: center;
-    }
+  .wrapper {
+    gap: 2rem;
+  }
+  .text-box {
+    flex-direction: column;
+    margin: 0 auto;
+    gap: 1rem;
+    text-align: center;
+  }
 }
 
 // ---------------------- menu-page styling starts here --------------------- //
 // ---------------------- menu-intro styling starts here -------------------- //
 .menu-intro {
-    border-bottom: 0.2rem dashed var(--dark-color);
-    header {
-        padding: 1rem 0;
-        flex: none;
-        margin: auto;
+  border-bottom: 0.2rem dashed var(--dark-color);
+  header {
+    padding: 1rem 0;
+    flex: none;
+    margin: auto;
+  }
+  .text-box {
+    gap: 2rem;
+    flex-direction: column;
+    padding: 2rem;
+    background-color: var(--dark-color);
+    border-radius: 2rem;
+    color: white;
+    max-width: 40rem;
+    span {
+      display: block;
+      color: rgb(41, 75, 150);
     }
-    .text-box {
-        gap: 2rem;
-        flex-direction: column;
-        padding: 2rem;
-        background-color: var(--dark-color);
-        border-radius: 2rem;
-        color: white;
-        max-width: 40rem;
-        span {
-            display: block;
-            color: rgb(41, 75, 150);
-        }
-    }
+  }
 }
 
 // ------------------------- menu styling starts here ----------------------- //
 .menu {
-    .wrapper {
-        flex-direction: column;
-        section {
-            padding: 2rem 0;
-        }
+  .wrapper {
+    flex-direction: column;
+    section {
+      padding: 2rem 0;
     }
+  }
 }
 
 // holding all ice cream items
 .item-box {
-    display: flex;
-    flex-wrap: wrap;
-    width: 100%;
-    border-bottom: 0.2rem dashed var(--dark-color);
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+  border-bottom: 0.2rem dashed var(--dark-color);
 }
 
 .menu-price {
-    display: flex;
-    flex-wrap: wrap;
-    padding: 1rem 0;
-    gap: 1rem;
-    width: 10rem;
+  display: flex;
+  flex-wrap: wrap;
+  padding: 1rem 0;
+  gap: 1rem;
+  width: 10rem;
+  flex: 1 1 100%;
+  h4 {
     flex: 1 1 100%;
-    h3 {
-        flex: 1 1 100%;
-        text-align: center;
-    }
-    .text-box:nth-of-type(1) {
-        margin: 0 0 0 auto;
-        text-align: left;
-    }
-    .text-box:nth-of-type(2) {
-        margin: 0 auto 0 0;
-        text-align: right;
-    }
+    text-align: center;
+  }
+  .text-box:nth-of-type(1) {
+    margin: 0 0 0 auto;
+    text-align: left;
+  }
+  .text-box:nth-of-type(2) {
+    margin: 0 auto 0 0;
+    text-align: right;
+  }
 }
 
 .item-box:nth-of-type(2) {
-    .text-box:nth-of-type(1) {
-        margin: auto;
-        text-align: center;
-    }
+  .text-box:nth-of-type(1) {
+    margin: auto;
+    text-align: center;
+  }
 }
 
 // displaying the image and text for each icecreams
 .items {
-    display: flex;
-    // this flex determines how many items to display per line.
-    flex: 0 0 20%;
-    border-radius: 2rem;
-    transition: background-color 0.5s;
-    cursor: pointer;
-    flex-direction: column;
-    &:hover {
-        background-color: var(--hover-color);
+  display: flex;
+  // this flex determines how many items to display per line.
+  flex: 0 0 20%;
+  border-radius: 2rem;
+  transition: background-color 0.5s;
+  cursor: pointer;
+  flex-direction: column;
+  &:hover {
+    background-color: var(--hover-color);
+  }
+  .image-box {
+    margin-top: 1rem;
+    position: relative;
+    width: 90%;
+    padding: 90% 0 0 0;
+    height: auto;
+    img {
+      position: absolute;
+      top: 0;
+      left: 0;
+      filter: saturate(80%);
     }
-    .image-box {
-        margin-top: 1rem;
-        position: relative;
-        width: 90%;
-        padding: 90% 0 0 0;
-        height: auto;
-        img {
-            position: absolute;
-            top: 0;
-            left: 0;
-            filter: saturate(80%);
-        }
-    }
-    h2 {
-        font-size: 1em;
-        text-align: center;
-        margin: 1rem 0;
-    }
+  }
+  p {
+    font-size: 1em;
+    text-align: center;
+    margin: 1rem 0;
+  }
 }
 
 // set the color when the user selects on the item
 .items.item-background {
-    background-color: var(--dark-color);
+  background-color: var(--dark-color);
 }
 
 .menu-total {
-    display: flex;
-    flex-wrap: wrap;
-    width: 100%;
-    margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+  margin: 0 auto;
+  gap: 1rem;
+  background-color: rgb(250, 250, 250);
+  border-radius: 2rem;
+  h3 {
+    flex: 1 1 100%;
+    text-align: center;
+  }
+  .text-box {
+    flex-direction: column;
     gap: 1rem;
-    background-color: rgb(250, 250, 250);
-    border-radius: 2rem;
-    h3 {
-        flex: 1 1 100%;
-        text-align: center;
-    }
-    .text-box {
-        flex-direction: column;
-        gap: 1rem;
-    }
-    .text-box:nth-of-type(1) {
-        max-width: 12rem;
-        margin: 0 2rem 0 auto;
-        text-align: left;
-    }
-    .text-box:nth-of-type(2) {
-        margin: 0 auto 0 2rem;
-        text-align: right;
-    }
-    .text-box:nth-of-type(3) {
-        flex: 1 1 100%;
-        text-align: center;
-    }
+  }
+  .text-box:nth-of-type(1) {
+    max-width: 12rem;
+    margin: 0 2rem 0 auto;
+    text-align: left;
+  }
+  .text-box:nth-of-type(2) {
+    margin: 0 auto 0 2rem;
+    text-align: right;
+  }
+  .text-box:nth-of-type(3) {
+    flex: 1 1 100%;
+    text-align: center;
+  }
 }
 
 #item-name,
 #item-price {
-    font-size: 1.2em;
+  font-size: 1.2em;
 }
 
 // ---------------------- menu-event styling stars here ------------------ //
 .menu-event {
-    display: flex;
-    flex-wrap: wrap;
-    .wrapper {
-        gap: 2rem;
-    }
-    .image-box {
-        width: 20em;
-        height: 20em;
-    }
-    .text-box {
-        flex: 1 1 40%;
-        flex-direction: column;
-        gap: 1rem;
-    }
+  display: flex;
+  flex-wrap: wrap;
+  .wrapper {
+    gap: 2rem;
+  }
+  .image-box {
+    width: 20em;
+    height: 20em;
+  }
+  .text-box {
+    flex: 1 1 40%;
+    flex-direction: column;
+    gap: 1rem;
+  }
 }
 
 // ---------------------- event-page styling stars here ------------------ //
 // ---------------------- event-intro styling stars here ------------------ //
 .event-intro {
-    .wrapper {
-        padding: 0em 0;
-    }
-    .text-box {
-        background: linear-gradient( 45deg, rgba(48, 48, 48, 0.808) 16rem, transparent 0%, transparent 85%, rgba(48, 48, 48, 0.808) 1rem);
-        width: 100%;
-        height: 30rem;
-        line-height: 1.5rem;
-        position: relative;
-        flex-direction: column;
-        padding: 2rem;
-        justify-content: flex-end;
-    }
-    h2 {
-        font-family: Verdana, Geneva, Tahoma, sans-serif;
-        font-size: 1.4rem;
-        color: white;
-    }
-    p {
-        font-family: Verdana, Geneva, Tahoma, sans-serif;
-        color: white;
-        font-size: 1rem;
-        font-weight: 900;
-    }
-    .bg-image {
-        position: absolute;
-        left: 1rem;
-        top: 1rem;
-        right: 1rem;
-        bottom: 1rem;
-        background-image: url(../imgs/event_intro.jpg);
-        background-position: 50% 20%;
-        background-repeat: no-repeat;
-        background-size: cover;
-        z-index: -1;
-    }
+  .wrapper {
+    padding: 0em 0;
+  }
+  .text-box {
+    background: linear-gradient(
+      45deg,
+      rgba(48, 48, 48, 0.808) 16rem,
+      transparent 0%,
+      transparent 85%,
+      rgba(48, 48, 48, 0.808) 1rem
+    );
+    width: 100%;
+    height: 30rem;
+    line-height: 1.5rem;
+    position: relative;
+    flex-direction: column;
+    padding: 2rem;
+    justify-content: flex-end;
+  }
+  h2 {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 1.4rem;
+    color: white;
+  }
+  p {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    color: white;
+    font-size: 1rem;
+    font-weight: 900;
+  }
+  .bg-image {
+    position: absolute;
+    left: 1rem;
+    top: 1rem;
+    right: 1rem;
+    bottom: 1rem;
+    background-image: url(../imgs/event_intro.jpg);
+    background-position: 50% 20%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    z-index: -1;
+  }
 }
 
 // ---------------------- event-list styling stars here ------------------ //
 .event-list {
-    .wrapper {
-        gap: 2rem;
-    }
-    section {
-        display: flex;
-        flex-wrap: wrap;
-    }
-    .image-box {
-        flex: 1 1 30%;
-        border-radius: 0;
-        min-width: 20rem;
-        height: 20rem;
-    }
-    h2 {
-        color: var(--dark-color);
-    }
-    .text-box {
-        flex: 1 1 50%;
-        flex-direction: column;
-        gap: 2rem;
-        padding: 1rem 2rem;
-        background-color: rgb(248, 248, 248);
-        min-height: 20rem;
-    }
+  .wrapper {
+    gap: 2rem;
+  }
+  section {
+    display: flex;
+    flex-wrap: wrap;
+  }
+  .image-box {
+    flex: 1 1 30%;
+    border-radius: 0;
+    min-width: 20rem;
+    height: 20rem;
+  }
+  h2 {
+    color: var(--dark-color);
+  }
+  .text-box {
+    flex: 1 1 50%;
+    flex-direction: column;
+    gap: 2rem;
+    padding: 1rem 2rem;
+    background-color: rgb(248, 248, 248);
+    min-height: 20rem;
+  }
 }
 
 // ------------------------ footer styling starts here ---------------------- //
 .footer {
-    background-color: rgb(26, 26, 26);
-    .wrapper {
-        padding: 1rem;
-        gap: 0.5rem;
-        flex-direction: column;
-    }
-    .image-box {
-        border-radius: 0;
-    }
-    img {
-        width: 10rem;
-    }
-    p {
-        font-size: 0.8rem;
-        font-family: Verdana, Geneva, Tahoma, sans-serif;
-        color: rgb(192, 192, 192);
-    }
-    .copy-right {
-        justify-content: center;
-    }
+  background-color: rgb(26, 26, 26);
+  .wrapper {
+    padding: 1rem;
+    gap: 0.5rem;
+    flex-direction: column;
+  }
+  .image-box {
+    border-radius: 0;
+  }
+  img {
+    width: 10rem;
+  }
+  p {
+    font-size: 0.8rem;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    color: rgb(192, 192, 192);
+  }
+  .copy-right {
+    justify-content: center;
+  }
 }
 
 .display-block {
-    display: block;
+  display: block;
 }
 
 .display-none {
-    display: none;
+  display: none;
 }
 
 // ------------------------- media query starts here ------------------- //
 @media screen and (max-width: 960px) {
-    body {
-        font-size: 0.8rem;
+  body {
+    font-size: 0.8rem;
+  }
+  .links {
+    display: none;
+  }
+  .nav-side {
+    display: flex;
+  }
+  .home-intro {
+    &__btn {
+      justify-content: center;
     }
-    .links {
-        display: none;
+  }
+  // items in the menu now have 4 per row.
+  .items {
+    flex: 0 0 25%;
+  }
+  .event-list {
+    .image-box {
+      height: 15rem;
     }
-    .nav-side {
-        display: flex;
+    .text-box {
+      flex: 1 1 100%;
+      min-height: auto;
     }
-    .home-intro {
-        &__btn {
-            justify-content: center;
-        }
-    }
-    // items in the menu now have 4 per row.
-    .items {
-        flex: 0 0 25%;
-    }
-    .event-list {
-        .image-box {
-            height: 15rem;
-        }
-        .text-box {
-            flex: 1 1 100%;
-            min-height: auto;
-        }
-    }
+  }
 }
 
 @media screen and (max-width: 693px) {
-    .wrapper {
-        padding: 6em 1rem;
+  .wrapper {
+    padding: 6em 1rem;
+  }
+  // change animation style when the user reach mobile screen
+  .home-menu,
+  .home-about-us,
+  .home-hire {
+    .image-box {
+      transform: translateX(0);
     }
-    // change animation style when the user reach mobile screen
-    .home-menu,
-    .home-about-us,
-    .home-hire {
-        .image-box {
-            transform: translateX(0);
-        }
-        .text-box {
-            transform: translateX(0) translateY(100%);
-            flex: 1 1 100%;
-        }
-        .transform-box {
-            transform: translateY(0);
-        }
+    .text-box {
+      transform: translateX(0) translateY(100%);
+      flex: 1 1 100%;
     }
-    .menu-event {
-        .text-box {
-            flex: 1 1 100%;
-        }
+    .transform-box {
+      transform: translateY(0);
     }
+  }
+  .menu-event {
+    .text-box {
+      flex: 1 1 100%;
+    }
+  }
 }
 
 @media screen and (max-width: 500px) {
-    // items in the menu now have 2 per row.
-    .items {
-        flex: 0 0 50%;
+  // items in the menu now have 2 per row.
+  .items {
+    flex: 0 0 50%;
+  }
+  .menu-total {
+    .text-box:nth-of-type(1) {
+      margin: 0 auto 0 2rem;
+      flex: 1 1 100%;
+      text-align: left;
     }
-    .menu-total {
-        .text-box:nth-of-type(1) {
-            margin: 0 auto 0 2rem;
-            flex: 1 1 100%;
-            text-align: left;
-        }
-        .text-box:nth-of-type(2) {
-            flex: 1 1 100%;
-            text-align: left;
-        }
+    .text-box:nth-of-type(2) {
+      flex: 1 1 100%;
+      text-align: left;
     }
+  }
 }
