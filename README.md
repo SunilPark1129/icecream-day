@@ -1,5 +1,5 @@
 # Ice Cream Day
-![aside menu - Copy](https://user-images.githubusercontent.com/106734133/173826606-94378972-b275-4c35-aee1-dcd5d364634f.jpg)
+![banner](https://user-images.githubusercontent.com/106734133/173826606-94378972-b275-4c35-aee1-dcd5d364634f.jpg)
 
 Check preview website - [Link](https://sunilpark1129.github.io/icecream-day/)
 
@@ -15,7 +15,7 @@ Ice Cream Day is an ice cream shop, and their website provides a list of sales a
 |Scroll Events|<img src="https://user-images.githubusercontent.com/106734133/173741723-90b1c4ac-0b0e-4a6e-9f6b-ce0bded8430e.gif" width="400" height="300"><br>When the user scrolls to reach the section, the scroll event is triggered. When the user scrolls back up and out of the section position, hides the contents of the section again.|
 |Selecting Items|<img src="https://user-images.githubusercontent.com/106734133/173741959-61439c08-e843-483b-8a07-f7ad421a0b9c.gif" width="400" height="300"><br>When an item is clicked, ```display: none``` is removed with ```classList.remove('display-none')``` of the array to show the information of the next array. All items have names and prices set, so whenever the user clicks on a new item, the value is stored in a new array. When the user clicks on all the necessary items, the name and price are displayed at the bottom. Frozen yogurt or milkshake does not require a cone, so clicking on this item skips picking a cup and goes directly to the results section.|
 
-## Tech Used
+## Technology Used
 ![HTML5](https://img.shields.io/badge/html5-%23E34F26.svg?style=for-the-badge&logo=html5&logoColor=white) ![CSS3](https://img.shields.io/badge/css3-%231572B6.svg?style=for-the-badge&logo=css3&logoColor=white) ![JavaScript](https://img.shields.io/badge/javascript-%23323330.svg?style=for-the-badge&logo=javascript&logoColor=%23F7DF1E) ![SASS](https://img.shields.io/badge/SASS-hotpink.svg?style=for-the-badge&logo=SASS&logoColor=white)
 
 ## Installation
