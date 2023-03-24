@@ -129,7 +129,7 @@ p {
 }
 
 .image-box {
-  border-radius: 50%;
+  border-radius: 10px;
   margin: auto;
   overflow: hidden;
 }
@@ -529,7 +529,7 @@ p {
 .items {
   display: flex;
   flex: 0 0 20%;
-  border-radius: 2rem;
+  border-radius: 10px;
   transition: background-color 0.5s;
   cursor: pointer;
   flex-direction: column;

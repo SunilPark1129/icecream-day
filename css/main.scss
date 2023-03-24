@@ -129,7 +129,7 @@ p {
 }
 
 .image-box {
-  border-radius: 50%;
+  border-radius: 10px;
   margin: auto;
   overflow: hidden;
   img {
@@ -568,7 +568,7 @@ p {
   display: flex;
   // this flex determines how many items to display per line.
   flex: 0 0 20%;
-  border-radius: 2rem;
+  border-radius: 10px;
   transition: background-color 0.5s;
   cursor: pointer;
   flex-direction: column;
