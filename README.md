@@ -9,7 +9,7 @@ Check preview website - [Link](https://sunilpark1129.github.io/icecream-day/)
 ## Features
 |Feature|Description|
 |:--:|:--:|
-|Navbar Cover|<img src="https://user-images.githubusercontent.com/106734133/173740659-2f7f1054-5a82-45bf-9105-ba52485f7a37.gif" width="400" height="400"><br>The cover page is overlaying all the windows. When you click the button, the cover page will disappear through animation.|
+|Navbar Cover|<img src="https://user-images.githubusercontent.com/106734133/173740659-2f7f1054-5a82-45bf-9105-ba52485f7a37.gif" width="400" height="400"><br>When you click any of the buttons on the cover page, the cover page shrinks to the top, revealing the website content.|
 |Text Background Sliding|<img src="https://user-images.githubusercontent.com/106734133/173740872-178e8478-a30f-40fb-b887-c174149ce0f1.gif" width="400" height="400"><br>When you click the button, the text related to that section appears with an animation effect.|
 |One-page Website|<img src="https://user-images.githubusercontent.com/106734133/173741327-9b336183-e69a-4086-b26b-6d967e8fc244.gif" width="400" height="300"><br>This is my personal challenge in this project, the 'sideways-page website' feature. There are two 100% width pages, the current page moves to ```left: -100%``` and the new page moves from ```left: 100%``` to ```left: 0%```.|
 |Scroll Events|<img src="https://user-images.githubusercontent.com/106734133/173741723-90b1c4ac-0b0e-4a6e-9f6b-ce0bded8430e.gif" width="400" height="300"><br>When the user scrolls to reach the section, the scroll event is triggered.|
